@@ -1,0 +1,8 @@
+name: webhook_receiver_sample_gen2
+entry_point: webhook_handler
+runtime: python311
+trigger_http: true
+gen2: true
+memory: 512Mi
+timeout: 60s
+region: asia-northeast1

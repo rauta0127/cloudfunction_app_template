@@ -1,0 +1,4 @@
+{
+  "app_name": "webhook_receiver_sample",
+  "entry_point": "webhook_handler"
+}
