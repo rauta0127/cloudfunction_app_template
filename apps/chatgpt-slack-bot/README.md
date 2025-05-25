@@ -42,6 +42,8 @@ gcloud functions deploy chatgpt-slack-bot \
   --entry-point=webhook_handler \
   --trigger-http \
   --memory=512MB
+  --set-env-vars SLACK_BOT_TOKEN=XXXXXX \
+  --set-env-vars OPENAI_API_KEY=XXXXXX
 ```
 
 ## カスタマイズ

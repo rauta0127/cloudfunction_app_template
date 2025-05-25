@@ -53,7 +53,16 @@ def webhook_handler(request):
             user_input = user_input.replace(f"<@{bot_user_id}>", "").strip()
 
         # OpenAI Chat API に問い合わせ
-        response = client.chat.completions.create(model="gpt-4o", messages=[{"role": "system", "content": "You are a helpful assistant."}, {"role": "user", "content": user_input}])
+        response = client.chat.completions.create(
+            model="gpt-4o",
+            messages=[
+                {
+                    "role": "system",
+                    "content": "You are a helpful assistant. Please use Slack's mrkdwn format in all replies. For example: use *bold*, _italic_, > blockquote, and ``` for code blocks.",
+                },
+                {"role": "user", "content": user_input},
+            ],
+        )
         reply_text = response.choices[0].message.content
         # print(f"[DEBUG] ChatGPT応答: {reply_text}")
 
