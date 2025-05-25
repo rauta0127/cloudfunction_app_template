@@ -13,7 +13,7 @@ client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
 
 def send_slack_reply(channel: str, text: str, thread_ts: str = None):
     headers = {"Authorization": f"Bearer {SLACK_BOT_TOKEN}", "Content-Type": "application/json"}
-    payload = {"channel": channel, "text": text}
+    payload = {"channel": channel, "text": text, "mrkdwn": True}
     if thread_ts:
         payload["thread_ts"] = thread_ts
 
